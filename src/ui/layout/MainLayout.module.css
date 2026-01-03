@@ -1,0 +1,60 @@
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--bg-app);
+}
+
+.contentWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.header {
+    height: 60px;
+    border-bottom: 1px solid var(--border-subtle);
+    background-color: var(--bg-panel);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+.planTitle {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-right: 12px;
+}
+
+.planStatus {
+    background-color: var(--status-info-bg);
+    color: var(--status-info-text);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.userAvatar {
+    width: 32px;
+    height: 32px;
+    background-color: var(--accent-primary);
+    color: var(--text-on-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.main {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    /* Padding is handled by views usually, or global padding here */
+}

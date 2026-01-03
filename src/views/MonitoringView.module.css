@@ -1,0 +1,133 @@
+.container {
+    padding: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    margin-bottom: 48px;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.header p {
+    color: var(--text-secondary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.metricName {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.statusIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.on-track {
+    color: var(--accent-success);
+}
+
+.risk {
+    color: var(--accent-warning);
+}
+
+.critical {
+    color: var(--accent-error);
+}
+
+.stats {
+    display: flex;
+    align-items: flex-end;
+    gap: 32px;
+    margin-bottom: 16px;
+}
+
+.stat label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 4px;
+}
+
+.value {
+    font-size: 16px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.valueLarge {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.trend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-tertiary);
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 16px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.alertBox {
+    background-color: var(--status-warning-bg);
+    color: var(--status-warning-text);
+    padding: 8px;
+    border-radius: var(--radius-md);
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.mitigateBtn {
+    background-color: var(--accent-primary);
+    color: white;
+    padding: 10px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 14px;
+    transition: opacity 0.2s;
+}
+
+.mitigateBtn:disabled {
+    opacity: 0.7;
+}

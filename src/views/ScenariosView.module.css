@@ -1,0 +1,160 @@
+.container {
+    padding: 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+}
+
+.generateBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--accent-primary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: filter 0.2s;
+}
+
+.generateBtn:hover {
+    filter: brightness(1.1);
+}
+
+.generateBtn:disabled {
+    opacity: 0.7;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.card,
+.cardCurrent {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardCurrent {
+    border-color: var(--accent-success);
+    background: linear-gradient(to bottom right, var(--bg-card), rgba(16, 185, 129, 0.05));
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.iconWrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.cardCurrent .iconWrapper {
+    background-color: var(--accent-success);
+}
+
+.iconAlt {
+    background-color: var(--border-strong);
+    color: var(--text-secondary);
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cardDesc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 24px;
+    flex: 1;
+}
+
+.metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding: 16px;
+    background-color: var(--bg-app);
+    border-radius: var(--radius-md);
+}
+
+.metric label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 4px;
+}
+
+.metric .value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.statusBadge {
+    text-align: center;
+    padding: 8px;
+    background-color: var(--status-success-bg);
+    color: var(--status-success-text);
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.applyBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.applyBtn:hover {
+    background-color: var(--bg-hover);
+    border-color: var(--text-secondary);
+}
