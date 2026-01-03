@@ -1,0 +1,106 @@
+.container {
+    display: flex;
+    height: 100vh;
+    padding: 24px;
+    gap: 24px;
+    background: radial-gradient(circle at 10% 20%, #1a1d26 0%, var(--bg-app) 40%);
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 16px;
+}
+
+.title h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.sectionHeader h2 {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.messageCard {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.msgHeader {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-tertiary);
+}
+
+.msgAuthor {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.msgBody {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.clusterPanel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.statsBar {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    background: var(--bg-glass);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-border);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.statValue {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.statLabel {
+    font-size: 12px;
+    color: var(--text-tertiary);
+}

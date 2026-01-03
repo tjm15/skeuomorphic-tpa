@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { usePlanStore } from '@/state/usePlanStore';
 import { planService } from '@/services';
 import { ObjectCard } from '@/ui/common/ObjectCard';
+import { GlassCard } from '@/ui/common/GlassCard';
 import styles from './PoliciesView.module.css';
 import { FileText, Sparkles, AlertCircle } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
@@ -42,17 +43,19 @@ export function PoliciesView() {
                 <h2 className={styles.sidebarTitle}>Policies</h2>
                 <div className={styles.list}>
                     {policies.map(policy => (
-                        <div
+                        <GlassCard
                             key={policy.id}
                             className={`${styles.item} ${activePolicyId === policy.id ? styles.itemActive : ''}`}
                             onClick={() => setSelectedId(policy.id)}
+                            hoverEffect
+                            interactive
                         >
                             <div className={styles.itemHeader}>
                                 <span className={styles.code}>{policy.code}</span>
                                 <span className={styles.status}>{policy.status}</span>
                             </div>
                             <div className={styles.itemTitle}>{policy.title}</div>
-                        </div>
+                        </GlassCard>
                     ))}
                 </div>
             </div>

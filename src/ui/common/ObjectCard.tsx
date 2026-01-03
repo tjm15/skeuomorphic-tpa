@@ -2,13 +2,14 @@
 
 import { ReactNode } from 'react';
 import { clsx } from 'clsx';
-import { FileText, MapPin, Database, AlertCircle } from 'lucide-react';
+import { FileText, MapPin, Database, AlertCircle, Activity } from 'lucide-react';
+import { GlassCard } from './GlassCard';
 import styles from './ObjectCard.module.css';
 
 interface ObjectCardProps {
     title: string;
     subtitle?: string;
-    type: 'policy' | 'site' | 'evidence' | 'issue';
+    type: 'policy' | 'site' | 'evidence' | 'issue' | 'signal';
     status?: string;
     children?: ReactNode;
     onClick?: () => void;
@@ -23,13 +24,19 @@ export function ObjectCard({
         policy: FileText,
         site: MapPin,
         evidence: Database,
-        issue: AlertCircle
+        issue: AlertCircle,
+        signal: Activity
     }[type];
 
     const statusColor = getStatusColor(status);
 
     return (
-        <div className={clsx(styles.card, className)} onClick={onClick}>
+        <GlassCard
+            className={clsx(styles.cardContent, className)}
+            onClick={onClick}
+            interactive={!!onClick}
+            hoverEffect={!!onClick}
+        >
             <div className={styles.header}>
                 <div className={styles.iconWrapper}>
                     <Icon size={18} />
@@ -41,14 +48,15 @@ export function ObjectCard({
                 {status && (
                     <span className={clsx(styles.statusBadge)} style={{
                         backgroundColor: statusColor.bg,
-                        color: statusColor.text
+                        color: statusColor.text,
+                        boxShadow: `0 0 10px ${statusColor.bg}`
                     }}>
                         {status}
                     </span>
                 )}
             </div>
             {children && <div className={styles.body}>{children}</div>}
-        </div>
+        </GlassCard>
     );
 }
 
@@ -62,7 +70,7 @@ function getStatusColor(status?: string) {
         return { bg: 'var(--status-info-bg)', text: 'var(--status-info-text)' };
     if (['risk', 'warning', 'shortlisted'].includes(s))
         return { bg: 'var(--status-warning-bg)', text: 'var(--status-warning-text)' };
-    if (['critical', 'fail', 'rejected', 'gap', 'contradiction'].includes(s))
+    if (['critical', 'fail', 'rejected', 'gap', 'contradiction', 'high'].includes(s))
         return { bg: 'var(--status-error-bg)', text: 'var(--status-error-text)' };
 
     return { bg: 'var(--bg-active)', text: 'var(--text-secondary)' };

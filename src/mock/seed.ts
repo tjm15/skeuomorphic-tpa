@@ -155,5 +155,15 @@ export const SEED_ISSUES: Issue[] = [
         type: 'gap',
         relatedObjectIds: ['POL-H1'],
         resolved: false
+    },
+    {
+        id: 'ISS-002',
+        planId: 'PLAN-2025-001',
+        title: 'High Street Pedestrianisation Concerns',
+        description: 'Cluster of 45 representations objecting to full pedestrianisation of High Street due to delivery access.',
+        severity: 'medium',
+        type: 'representation',
+        relatedObjectIds: ['POL-TC1', 'SITE-002'],
+        resolved: false
     }
 ];

@@ -1,0 +1,38 @@
+.card {
+    position: relative;
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm), var(--shadow-inner);
+    overflow: hidden;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+.reflection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hover:hover,
+.interactive:hover {
+    background: var(--bg-glass-strong);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: var(--shadow-md), var(--shadow-inner), var(--shadow-glow);
+    transform: translateY(-1px);
+}
+
+.interactive {
+    cursor: pointer;
+}

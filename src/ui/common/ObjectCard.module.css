@@ -1,15 +1,6 @@
-.card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
+.cardContent {
     padding: 16px;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.card:hover {
-    background-color: var(--bg-hover);
-    border-color: var(--border-strong);
+    height: 100%;
 }
 
 .header {
