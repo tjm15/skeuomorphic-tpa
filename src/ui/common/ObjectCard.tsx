@@ -6,7 +6,7 @@ import { FileText, MapPin, Database, AlertCircle, Activity } from 'lucide-react'
 import { GlassCard } from './GlassCard';
 import styles from './ObjectCard.module.css';
 
-interface ObjectCardProps {
+export interface ObjectCardProps {
     title: string;
     subtitle?: string;
     type: 'policy' | 'site' | 'evidence' | 'issue' | 'signal';
@@ -14,10 +14,17 @@ interface ObjectCardProps {
     children?: ReactNode;
     onClick?: () => void;
     className?: string;
+    // Extended props
+    isContested?: boolean;
+    isSuperseded?: boolean;
+    isBound?: boolean;
+    edgeChips?: Array<{ type: string; count: number }>;
+    style?: React.CSSProperties;
 }
 
 export function ObjectCard({
-    title, subtitle, type, status, children, onClick, className
+    title, subtitle, type, status, children, onClick, className,
+    isContested, isSuperseded, isBound, edgeChips = [], style
 }: ObjectCardProps) {
 
     const Icon = {
@@ -32,20 +39,31 @@ export function ObjectCard({
 
     return (
         <GlassCard
-            className={clsx(styles.cardContent, className)}
+            className={clsx(
+                styles.cardContent,
+                isContested && styles.contested,
+                isSuperseded && styles.superseded,
+                className
+            )}
+            style={style}
             onClick={onClick}
             interactive={!!onClick}
             hoverEffect={!!onClick}
         >
-            <div className={styles.header}>
-                <div className={styles.iconWrapper}>
-                    <Icon size={18} />
+            {isBound && (
+                <div className={styles.seal}>
+                    SEALED
                 </div>
-                <div className={styles.titleWrapper}>
+            )}
+
+            <div className={styles.header}>
+                <div className={styles.titleBlock}>
+                    <span className={styles.typeLabel}>{type}</span>
                     <h3 className={styles.title}>{title}</h3>
                     {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
                 </div>
-                {status && (
+
+                {status && !isSuperseded && (
                     <span className={clsx(styles.statusBadge)} style={{
                         backgroundColor: statusColor.bg,
                         color: statusColor.text,
@@ -55,7 +73,25 @@ export function ObjectCard({
                     </span>
                 )}
             </div>
+
             {children && <div className={styles.body}>{children}</div>}
+
+            {edgeChips.length > 0 && (
+                <div className={styles.footer}>
+                    {edgeChips.map((chip, i) => (
+                        // Using inline trivial rendering or could import EdgeChip.
+                        // For now, let's use a simple chip to avoid circular dep or move issues, 
+                        // or better: Use EdgeChip if valid.
+                        // I will render simple spans here for now to fit the generic card, or import EdgeChip if I update imports.
+                        // Let's stick to the styling defined in ObjectCard for now or reuse primitive if easy.
+                        // Actually, I should import EdgeChip from primitives.
+                        <div key={i} title={`${chip.type}: ${chip.count}`}
+                            style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '4px' }}>
+                            {chip.type} ({chip.count})
+                        </div>
+                    ))}
+                </div>
+            )}
         </GlassCard>
     );
 }

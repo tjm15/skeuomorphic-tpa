@@ -1,0 +1,96 @@
+.chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* --- Modes --- */
+
+.default {
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--surface-raised, #f1f5f9);
+    border-color: var(--border-subtle, #e2e8f0);
+    color: var(--text-secondary, #64748b);
+}
+
+.default:hover {
+    background: var(--surface-hover, #e2e8f0);
+    transform: translateY(-1px);
+}
+
+.marginalia {
+    padding: 2px 6px;
+    border-radius: 4px;
+    /* Small rounded rect */
+    background: transparent;
+    border-color: transparent;
+    color: var(--text-tertiary);
+    font-size: 0.7rem;
+}
+
+.marginalia:hover {
+    background: rgba(0, 0, 0, 0.03);
+    color: var(--text-secondary);
+}
+
+.marginalia.active {
+    background: var(--surface-active);
+    color: var(--text-primary);
+    border-color: var(--border-subtle);
+}
+
+/* --- Types (Color Coding) --- */
+
+.supports {
+    /* Neutral / Green tint? Spec says neutral mostly, but maybe subtle green for support */
+    color: var(--text-secondary);
+}
+
+.contests {
+    /* Warmer for contests */
+    color: #b45309;
+    /* Amber-700 */
+    background: #fffbeb;
+    /* Amber-50 */
+    border-color: #fcd34d;
+    /* Amber-300 */
+}
+
+.contests.marginalia {
+    color: #b45309;
+    background: transparent;
+    border-color: transparent;
+}
+
+.contests.marginalia:hover {
+    background: #fffbeb;
+}
+
+.warning {
+    position: relative;
+}
+
+.warning::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 6px;
+    height: 6px;
+    background: #ef4444;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+/* Active State */
+.active {
+    border-color: var(--accent-color, #3b82f6);
+    background: var(--accent-light, #eff6ff);
+    color: var(--accent-dark, #1d4ed8);
+}

@@ -1,0 +1,16 @@
+.surface {
+    flex: 1;
+    position: relative;
+    overflow-y: auto;
+    /* Independent scrolling */
+    overflow-x: hidden;
+    padding: 32px;
+    background: var(--bg-app);
+    /* Use main app bg */
+    /* Add subtle grid or noise if available in globals, or simple color */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Ensure scrollbar is nice if possible (usually global, but can add here if needed) */
